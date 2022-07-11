@@ -1,0 +1,45 @@
+*{
+    border: 1px solid red;
+    margin: 0;
+
+}
+
+body{
+
+
+}
+
+#top{
+ position:fixed;
+ top: 0;
+ width: 100%;
+ background-color: purple;
+ height: 25px ;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+
+    
+}
+
+#left{
+    position: fixed;
+    top: 25px;
+    height: 100%;
+    width: 200px;
+    background-color: purple;
+}
+
+#main{
+    position: fixed;
+    top: 25px;
+    left:200px ;
+    width: 100vw;
+    height: 100vh;
+}
+
+#form{
+    width: 550px;
+    height: 250px;
+    display: grid;
+    background-color: beige;
+}
