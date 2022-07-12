@@ -5,57 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <script src="script.js" defer></script>
+
+    <script type="module" src="./js/main.js" defer></script>
     <link href="style.css" rel="stylesheet">
 
 </head>
 <body>
     <div id="top">
-        <div>///</div>
-        <div>+</div>
+        <div id="openProjectWindow">///</div>
+        <div id="openTaskWindow" >+</div>
     </div>
-    <div id="left">left</div>
-    <div id="main">Tasks:
+    <div id="left" class="vis">Projects:
         <div>
+            <form>
+                <label >Add Project:</label>
+                <input id="newProject">
+                <button id="addProjectButton">+</button>
+            </form>
+        </div>
+        <div id="listOfProjects"></div>
+    </div>
+    <div id="main">Tasks:
+        <div id="floating" class="hidden">
             <form id="form">New Task:
                 <div>
                     <label>Due Date:</label>
-                    <input type="date">
+                    <input id="date" type="date">
                 </div>
                 <div>
                     <label>Title:</label>
-                    <input type="text" placeholder="title">
+                    <input id="title" type="text" placeholder="title">
                 </div>
 
                 <div>
                     <label>Description:</label>
-                    <input type="text" placeholder="description">
+                    <input id="desc" type="text" placeholder="description">
                 </div>
                 
                 <div>
                     <label>Project:</label>
-                    <select>
-                        <option>Default</option>
-                        <option></option>
-                        <option></option>
+                    <select id="project">
                     </select>
                 </div>
 
                 <div>
                     <label>Priority:</label>
-                    <select>
+                    <select id="priority" >
                         <option>1</option>
                         <option>2</option>
-                        <option>3</option>
+                        let task1 = taskFactory("1/1/2022",taskTitle)    <option>3</option>
                     </select>
                 </div>
                 <div>   
                     <button>Close</button>
-                    <button>Add Task</button>
+                    <button id="add">Add Task</button>
                 </div>
             </form>
             
         </div>
+        <div id="list"></div>
     </div>
 </body>
 </html>

@@ -5,41 +5,73 @@
 }
 
 body{
-
-
+    display: grid;
 }
 
 #top{
- position:fixed;
+ /* position:fixed;
  top: 0;
  width: 100%;
  background-color: purple;
  height: 25px ;
  display: grid;
- grid-template-columns: 1fr 1fr;
+ grid-template-columns: 1fr 1fr; */
 
     
 }
 
 #left{
-    position: fixed;
-    top: 25px;
-    height: 100%;
-    width: 200px;
-    background-color: purple;
+    /* position: fixed; */
+    /* top: 25px;
+    height: 100%; */
+    /* width: 200px; */
+    /* background-color: purple; */
 }
 
 #main{
-    position: fixed;
+    /* position: fixed;
     top: 25px;
     left:200px ;
     width: 100vw;
-    height: 100vh;
+    height: 100vh; */
 }
 
-#form{
+#form {
     width: 550px;
     height: 250px;
     display: grid;
     background-color: beige;
+}
+
+#floating{
+    position:fixed;
+    bottom: 0;
+    right:0;
+
+
+}
+.hidden{
+    display: none;
+
+
+}
+.active{
+    display:grid;
+
+
+}
+
+.hid{
+    background-color: aqua;
+    width: 0px;
+
+    transition: 1s;
+}
+
+.vis{
+    background-color: rgb(55, 0, 255);
+    width: 400px;
+    transition: 1s;
+
+
 }
