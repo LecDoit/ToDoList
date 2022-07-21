@@ -1,6 +1,10 @@
 import * as projectFunction from './projectFunction.js'
 import * as taskFunction from './taskFunction.js'
 import * as domObj from './domObjects.js'
+import { genKey } from './genKey.js'
+import * as deleteFunc from './deleteButton.js'
+
+
 
 
 //function that generated the grid of items 
@@ -21,6 +25,10 @@ let genGridFunction = function(){
                 let titleContainter = document.createElement('div')
                 let descriptionContainter = document.createElement('div')
                 let priorityContainter = document.createElement('div')
+                let taskDelButton = document.createElement('button')
+                
+                taskDelButton.textContent = 'x'
+                taskDelButton.setAttribute('class','del-but')
                 
 
                 dateContainter.innerHTML = ('Due Date: ') + (taskFunction.tasks[j].date)
@@ -33,13 +41,20 @@ let genGridFunction = function(){
                 taskContainter.appendChild(priorityContainter)
                 taskContainter.appendChild(descriptionContainter)
 
+                taskDelButton.dataset.name = taskFunction.tasks[j].id
+                taskContainter.dataset.name = taskFunction.tasks[j].id
+                taskContainter.appendChild(taskDelButton)
+
                 projectContainter.appendChild(taskContainter)
+                deleteFunc.deleteButtonTaskFunction()
             }
         }
     }
 
 }
 genGridFunction()
+
+
 
 
 export{genGridFunction}

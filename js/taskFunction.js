@@ -7,25 +7,29 @@ import {taskDate,
     tasks
 } from './domObjects.js'
 
+
 import {genGridFunction} from './listOfTasks.js'
+import {genKey} from './genKey.js'
 
 
 
 
 
-let taskFactory = function(date, title, description,project,priority){
-    return {date, title, description,project,priority}
+let taskFactory = function(id,date, title, description,project,priority){
+    return {id,date, title, description,project,priority}
 }
 
-let faketask = taskFactory('01/01/2025','Birthday',' tingz','today','1')
-let faketask2 = taskFactory('01/01/2022','Party','run thingz','tomorrow','2')
+let faketask = taskFactory('123','01/01/2025','Birthday',' tingz','today','1')
+let faketask2 = taskFactory('456','01/01/2022','Party','run thingz','tomorrow','2')
 tasks.push(faketask,faketask2)
 
 
 let addTask = (function(){
     addButton.addEventListener('click',function(ev){
         ev.preventDefault();
-        let tempTask = taskFactory(taskDate.value,
+        let tempTask = taskFactory(
+                            genKey(),
+                            taskDate.value,
                             taskTitle.value,
                             taskDesc.value,
                             taskProject.value,

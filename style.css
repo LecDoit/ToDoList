@@ -6,34 +6,43 @@
 
 body{
     display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 6fr;
 }
 
 #top{
- /* position:fixed;
- top: 0;
- width: 100%;
- background-color: purple;
- height: 25px ;
- display: grid;
- grid-template-columns: 1fr 1fr; */
 
+ display: grid;
+ grid-template-columns: 1fr 6fr;
+ 
+ grid-row-start: 0;
+ grid-row-end: 0;
     
+ grid-column-start: 1;
+ grid-column-end: 3;
+
+ 
 }
 
 #left{
-    /* position: fixed; */
-    /* top: 25px;
-    height: 100%; */
-    /* width: 200px; */
-    /* background-color: purple; */
+
+    background-color: rgb(216, 164, 216);
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    grid-column-start: 1;
+    grid-column-end: 1;
 }
 
 #main{
-    /* position: fixed;
-    top: 25px;
-    left:200px ;
-    width: 100vw;
-    height: 100vh; */
+
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
 
 #form {
@@ -62,16 +71,10 @@ body{
 }
 
 .hid{
-    background-color: aqua;
-    width: 0px;
+    display: none !important;
 
-    transition: 1s;
-}
+} 
 
 .vis{
-    background-color: rgb(55, 0, 255);
-    width: 400px;
-    transition: 1s;
-
-
+    display: grid;
 }
