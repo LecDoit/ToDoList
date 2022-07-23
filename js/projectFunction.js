@@ -1,24 +1,25 @@
 import { addProjectButton,projectTitle,listOfProjects,taskProject} from './domObjects.js'
-
+import {genKey} from './genKey.js'
+import {deleteButtonProjectFunction} from './deleteButton.js'
 
 
 
 let projects = []
-let projectFactory = function(projectName){
-    return {projectName}
+let projectFactory = function(id, projectName){
+    return {id, projectName}
 }
 
 //fake item
-let fake = projectFactory('today')
-let fake2 = projectFactory('tomorrow')
-projects.push(fake,fake2)
+// let fake = projectFactory('666','today')
+// let fake2 = projectFactory('999','tomorrow')
+// projects.push(fake,fake2)
 
 //IIFe function that gather and create the object of Project and push it to list.
 
 let addProject = (function(){
     addProjectButton.addEventListener('click',function(ev){
         ev.preventDefault();
-        let tempProject = projectFactory(projectTitle.value)
+        let tempProject = projectFactory(genKey(),projectTitle.value)
         projects.push(tempProject)
         console.log(projects)
         document.forms[0].reset();
@@ -41,11 +42,23 @@ let projectsRefresh = function(){
 
         //populate the leftbar
         let newListItem = document.createElement('div')
+        let projectContainter = document.createElement('div')
+        let projectDelButton = document.createElement('button')
+        projectDelButton.className = 'del-project-but'
+        projectDelButton.innerHTML = 'x'
+
+        projectContainter.dataset.name = projects[i].id
+        projectDelButton.dataset.name = projects[i].id
+
         newListItem.innerHTML = projects[i].projectName
-        listOfProjects.appendChild(newListItem)
+        projectContainter.appendChild(newListItem)
+        projectContainter.appendChild(projectDelButton)
+        listOfProjects.appendChild(projectContainter)
+
+        deleteButtonProjectFunction()
 
     }
 }
 projectsRefresh()
 
-export {projects}
+export {projects , projectsRefresh}

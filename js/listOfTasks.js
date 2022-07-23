@@ -47,6 +47,7 @@ let genGridFunction = function(){
 
                 projectContainter.appendChild(taskContainter)
                 deleteFunc.deleteButtonTaskFunction()
+                
             }
         }
     }

@@ -19,9 +19,9 @@ let taskFactory = function(id,date, title, description,project,priority){
     return {id,date, title, description,project,priority}
 }
 
-let faketask = taskFactory('123','01/01/2025','Birthday',' tingz','today','1')
-let faketask2 = taskFactory('456','01/01/2022','Party','run thingz','tomorrow','2')
-tasks.push(faketask,faketask2)
+// let faketask = taskFactory('123','01/01/2025','Birthday',' tingz','today','1')
+// let faketask2 = taskFactory('456','01/01/2022','Party','run thingz','tomorrow','2')
+// tasks.push(faketask,faketask2)
 
 
 let addTask = (function(){
