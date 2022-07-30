@@ -1,6 +1,8 @@
 import { addProjectButton,projectTitle,listOfProjects,taskProject} from './domObjects.js'
 import {genKey} from './genKey.js'
 import {deleteButtonProjectFunction} from './deleteButton.js'
+import {releaseStorage} from './localStorageFunc.js'
+
 
 
 
@@ -10,9 +12,9 @@ let projectFactory = function(id, projectName){
 }
 
 //fake item
-// let fake = projectFactory('666','today')
-// let fake2 = projectFactory('999','tomorrow')
-// projects.push(fake,fake2)
+let fake = projectFactory('666','today')
+let fake2 = projectFactory('999','tomorrow')
+projects.push(fake,fake2)
 
 //IIFe function that gather and create the object of Project and push it to list.
 
@@ -24,8 +26,10 @@ let addProject = (function(){
         console.log(projects)
         document.forms[0].reset();
         projectsRefresh()
+        releaseStorage('projects',projects)
 
     })
+    releaseStorage('projects',projects)
 
 })();
 
@@ -33,6 +37,13 @@ let addProject = (function(){
 let projectsRefresh = function(){
     taskProject.innerHTML =''
     listOfProjects.innerHTML =''
+
+    //plaing arround with local storage
+    let localStorageProjects = localStorage.getItem('tasks')
+    localStorageProjects = JSON.parse(localStorageProjects)
+    console.log(localStorageProjects)
+
+
     for (let i=0;i<projects.length;i++){
         // populate the dropdown
         let newOption = document.createElement('option')

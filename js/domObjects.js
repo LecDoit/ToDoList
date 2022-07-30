@@ -12,6 +12,8 @@ let floatingTaskWindow = document.getElementById('floating')
 let floatingProjectWindow = document.getElementById('left')
 
 
+
+
 // New Project form
 let listOfProjects = document.getElementById('listOfProjects')
 
@@ -42,5 +44,5 @@ export {
     floatingTaskWindow,
     floatingProjectWindow,
     openProjectWindow,
-    
+  
 };

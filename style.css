@@ -78,3 +78,22 @@ body{
 .vis{
     display: grid;
 }
+.start{
+    overflow:hidden;
+
+    max-height: 0;
+    transition: max-height 0.5s;
+}
+
+.aktyw{
+    overflow:visible;
+    background-color: bisque;
+    transition: max-height 0.5s;
+    max-height: 100px;
+    
+}
+
+.nieaktyw{
+
+}
+
