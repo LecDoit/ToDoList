@@ -17,6 +17,8 @@ let floatingTaskWinowFunc = (function(){
 
 let floatingProjectWindowFunc = (function(){
     domObj.openProjectWindow.addEventListener('click',function(){
+        console.log('ls has been cleared')
+        localStorage.clear()
         if (domObj.floatingProjectWindow.classList == 'vis'){
             domObj.floatingProjectWindow.classList.remove('vis')
             domObj.floatingProjectWindow.classList.add('hid')
@@ -29,5 +31,5 @@ let floatingProjectWindowFunc = (function(){
 
 
 
-// export{accordionFunc}
+export{floatingTaskWinowFunc, floatingProjectWindowFunc}
 

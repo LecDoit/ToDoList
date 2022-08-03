@@ -2,34 +2,44 @@ import { addProjectButton,projectTitle,listOfProjects,taskProject} from './domOb
 import {genKey} from './genKey.js'
 import {deleteButtonProjectFunction} from './deleteButton.js'
 import {releaseStorage} from './localStorageFunc.js'
+import * as listOfTasks from './listOfTasks.js'
 
 
 
+let generateListOfProjects = (function(){
+    let projects = []
+    if (localStorage.getItem('projects') == null){
+        return projects
+    }else {
+        projects.push(...JSON.parse(localStorage.getItem('projects')))
+        return projects 
+    }
+})();
 
-let projects = []
+
 let projectFactory = function(id, projectName){
     return {id, projectName}
 }
 
-//fake item
-let fake = projectFactory('666','today')
-let fake2 = projectFactory('999','tomorrow')
-projects.push(fake,fake2)
 
 //IIFe function that gather and create the object of Project and push it to list.
+
 
 let addProject = (function(){
     addProjectButton.addEventListener('click',function(ev){
         ev.preventDefault();
         let tempProject = projectFactory(genKey(),projectTitle.value)
-        projects.push(tempProject)
-        console.log(projects)
+        generateListOfProjects.push(tempProject)
+
         document.forms[0].reset();
+        releaseStorage('projects',generateListOfProjects)
+        listOfTasks.genGridFunction
         projectsRefresh()
-        releaseStorage('projects',projects)
+ 
+
 
     })
-    releaseStorage('projects',projects)
+
 
 })();
 
@@ -38,38 +48,44 @@ let projectsRefresh = function(){
     taskProject.innerHTML =''
     listOfProjects.innerHTML =''
 
-    //plaing arround with local storage
-    let localStorageProjects = localStorage.getItem('tasks')
+
+    let localStorageProjects = localStorage.getItem('projects')
     localStorageProjects = JSON.parse(localStorageProjects)
-    console.log(localStorageProjects)
 
 
-    for (let i=0;i<projects.length;i++){
-        // populate the dropdown
-        let newOption = document.createElement('option')
-        newOption.innerHTML = projects[i].projectName
-        taskProject.appendChild(newOption)
- 
+    if (localStorageProjects==null ){
+        console.log("empty LS")
+    } else{
 
-        //populate the leftbar
-        let newListItem = document.createElement('div')
-        let projectContainter = document.createElement('div')
-        let projectDelButton = document.createElement('button')
-        projectDelButton.className = 'del-project-but'
-        projectDelButton.innerHTML = 'x'
+    
 
-        projectContainter.dataset.name = projects[i].id
-        projectDelButton.dataset.name = projects[i].id
+        for (let i=0;i<localStorageProjects.length;i++){
+            // populate the dropdown
+            let newOption = document.createElement('option')
+            newOption.innerHTML = localStorageProjects[i].projectName
+            taskProject.appendChild(newOption)
+    
 
-        newListItem.innerHTML = projects[i].projectName
-        projectContainter.appendChild(newListItem)
-        projectContainter.appendChild(projectDelButton)
-        listOfProjects.appendChild(projectContainter)
+            //populate the leftbar
+            let newListItem = document.createElement('div')
+            let projectContainter = document.createElement('div')
+            let projectDelButton = document.createElement('button')
+            projectDelButton.className = 'del-project-but'
+            projectDelButton.innerHTML = 'x'
 
-        deleteButtonProjectFunction()
+            projectContainter.dataset.name = localStorageProjects[i].id
+            projectDelButton.dataset.name = localStorageProjects[i].id
 
+            newListItem.innerHTML = localStorageProjects[i].projectName
+            projectContainter.appendChild(newListItem)
+            projectContainter.appendChild(projectDelButton)
+            listOfProjects.appendChild(projectContainter)
+
+            deleteButtonProjectFunction()
+
+        }
     }
 }
 projectsRefresh()
 
-export {projects , projectsRefresh}
+export {generateListOfProjects, projectsRefresh}

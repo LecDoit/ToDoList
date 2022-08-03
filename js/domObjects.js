@@ -24,8 +24,7 @@ let addProjectButton = document.getElementById('addProjectButton')
 //main
 let mainView = document.getElementById('main')
 
-// lists
-let tasks = [];
+
 
 export {
     taskDate,
@@ -38,7 +37,6 @@ export {
     projectTitle,
     listOfProjects,
     mainView,
-    tasks,
     mainList,
     openTaskWindow,
     floatingTaskWindow,

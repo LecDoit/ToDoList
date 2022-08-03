@@ -4,7 +4,7 @@ import {taskDate,
     taskProject,
     taskPriority,
     addButton,
-    tasks
+
 } from './domObjects.js'
 
 
@@ -14,20 +14,26 @@ import {releaseStorage} from './localStorageFunc.js'
 
 
 
+let generateListOfTasks = (function(){
+    let tasks = []
+    if (localStorage.getItem('tasks') == null){
+        return tasks
+    }else {
+        tasks.push(...JSON.parse(localStorage.getItem('tasks')))
+        return tasks
+    }
+})();
 
 
 let taskFactory = function(id,date, title, description,project,priority){
     return {id,date, title, description,project,priority}
 }
 
-let faketask = taskFactory('123','01/01/2025','Birthday',' tingz','today','1')
-let faketask2 = taskFactory('456','01/01/2022','Party','run thingz','tomorrow','2')
-tasks.push(faketask,faketask2)
+
 
 
 let addTask = (function(){
     addButton.addEventListener('click',function(ev){
-        ev.preventDefault();
         let tempTask = taskFactory(
                             genKey(),
                             taskDate.value,
@@ -36,15 +42,16 @@ let addTask = (function(){
                             taskProject.value,
                             taskPriority.value)
                             
-        tasks.push(tempTask)
-        console.log((tasks))
+        generateListOfTasks.push(tempTask)
+        console.log((generateListOfTasks))
         document.forms[1].reset();
+
+        accordionFunc
+        releaseStorage('tasks',generateListOfTasks)
         genGridFunction()
-        accordionFunc()
-        releaseStorage('tasks',tasks)
     
     })  
-    releaseStorage('tasks',tasks)
+
 })()
 
-export {addTask,tasks}
+export {generateListOfTasks, addTask}
