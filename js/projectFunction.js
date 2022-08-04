@@ -35,6 +35,7 @@ let addProject = (function(){
         releaseStorage('projects',generateListOfProjects)
         listOfTasks.genGridFunction
         projectsRefresh()
+        location.reload()
  
 
 
@@ -54,7 +55,7 @@ let projectsRefresh = function(){
 
 
     if (localStorageProjects==null ){
-        console.log("empty LS")
+
     } else{
 
     
@@ -80,11 +81,14 @@ let projectsRefresh = function(){
             projectContainter.appendChild(newListItem)
             projectContainter.appendChild(projectDelButton)
             listOfProjects.appendChild(projectContainter)
+      
 
             deleteButtonProjectFunction()
 
         }
+
     }
+    
 }
 projectsRefresh()
 

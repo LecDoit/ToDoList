@@ -1,3 +1,4 @@
+import { deleteButtonProjectFunction } from './deleteButton.js'
 import * as projectFunction from './projectFunction.js'
 import * as tasksFunction from './taskFunction.js'
 
@@ -12,4 +13,10 @@ sessionStorage.removeItem('IsThisFirstTime_Log_From_LiveServer')
 
 export {releaseStorage}
 
+
+let clearButton = document.getElementById('clear');
+clearButton.addEventListener('click',function(){
+    localStorage.clear()
+    location.reload()
+})
 

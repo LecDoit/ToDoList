@@ -1,6 +1,8 @@
 *{
-    border: 1px solid red;
+    /* border: 1px solid rgb(0, 0, 0); */
     margin: 0;
+    font-family: 'Times New Roman';
+    letter-spacing: 5px;
 
 }
 
@@ -8,31 +10,127 @@ body{
     display: grid;
     grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr 6fr;
+
 }
 
 #top{
-
+padding-top: 10px;
  display: grid;
- grid-template-columns: 1fr 6fr;
- 
+ /* grid-auto-flow:column; */
+ grid-template-columns: 1fr 2fr 2fr;
+
  grid-row-start: 0;
  grid-row-end: 0;
-    
  grid-column-start: 1;
- grid-column-end: 3;
+ grid-column-end: 6;
+ height: 50px;
+ align-content: center;
+ justify-content: center;
+ text-align: center;
+ align-items: center;
 
- 
+}
+#openProjectWindow, #clear,#openTaskWindow{
+    display: grid;
+    height: 10vh;
+    text-align: center;
+    align-items: center;
+    transition: 0.5s;
+
+
+
+}
+
+#openProjectWindow:hover, #clear:hover,#openTaskWindow:hover{
+    color: rgb(178 ,125,108);
+
+}
+#openTaskWindow{
+
 }
 
 #left{
-
-    background-color: rgb(216, 164, 216);
+    background-color: rgb(195, 180, 172);
     display: grid;
-    grid-row-start: 2;
-    grid-row-end: 2;
-
+    grid-row-start: 1;
+    grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 1;
+    box-shadow: 1px 10px 25px 5px   rgb(31, 10, 3);
+    
+
+}
+
+#projectform{
+    border-top: 1px solid black ;
+    display: grid;
+    grid-row-start: 1;
+    grid-row-end: 1;
+
+
+}
+
+#newProject{
+    border: none;
+    width: 100%;   
+    padding: 0;
+    border-top:3px solid rgb(242, 234, 229);
+    text-align: center;
+ 
+
+}
+#newProject:focus{
+
+    outline: none;
+}
+#addProjectButton{
+    border: none;
+    background-color: rgb(195, 180, 172); ;
+    text-align: center;
+    border-bottom: 1px solid black;
+    width: 100%;
+
+  
+}
+#listOfProjects{
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    
+}
+#listOfProjects >div{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+    border-bottom: 1px solid black;
+}
+.del-project-but{
+    background-color: rgba(223, 188, 169, 0);
+    border: none;
+    font-size: large;
+    display: grid;
+    border-left: 2px solid rgb(178, 125, 108);
+
+}
+#listOfProjects >div >div{
+    text-decoration: none;
+    transform: 0.5s;
+}
+#listOfProjects >div >div:hover{
+    transform: 0.5s;
+    text-decoration: underline;
+
+}
+
+
+#together{
+    background-color: rgb(242, 234, 229);
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 6;
 }
 
 #main{
@@ -48,39 +146,57 @@ body{
 #form {
     width: 550px;
     height: 250px;
+
+    background-color: rgb(234, 227, 226);
     display: grid;
-    background-color: beige;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 1px solid rgb(178, 125, 108);
+}
+#form>div{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
 #floating{
-    position:fixed;
-    bottom: 0;
-    right:0;
+    position:absolute;
 
 
+    box-shadow: 1px 10px 35px 10px   rgb(31, 10, 3);
 }
 .hidden{
-    display: none;
+    overflow: hidden;
+
+    transition: top 0.5s;
+    top: -300px;
 
 
 }
 .active{
-    display:grid;
+    overflow:visible;
+    transition: top 0.5s;
+
+    top: 100px;
 
 
 }
 
 .hid{
-    display: none !important;
-
+    overflow:hidden;
+    max-width: 0;
+    transition: max-width 0.5s;
 } 
-
 .vis{
-    display: grid;
+    overflow:visible;
+    transition: max-width 0.5s;
+    max-width: 100%;
 }
+
+
+
+
 .start{
     overflow:hidden;
-
     max-height: 0;
     transition: max-height 0.5s;
 }
@@ -90,7 +206,6 @@ body{
     background-color: bisque;
     transition: max-height 0.5s;
     max-height: 100px;
-    
 }
 
 .nieaktyw{
