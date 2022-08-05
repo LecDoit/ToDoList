@@ -33,9 +33,9 @@ let addProject = (function(){
 
         document.forms[0].reset();
         releaseStorage('projects',generateListOfProjects)
-        listOfTasks.genGridFunction
+        listOfTasks.genGridFunction()
         projectsRefresh()
-        location.reload()
+        // location.reload()
  
 
 

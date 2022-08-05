@@ -34,6 +34,7 @@ let taskFactory = function(id,date, title, description,project,priority){
 
 let addTask = (function(){
     addButton.addEventListener('click',function(ev){
+        ev.preventDefault()
         let tempTask = taskFactory(
                             genKey(),
                             taskDate.value,
