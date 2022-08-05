@@ -12,6 +12,16 @@ let floatingTaskWinowFunc = (function(){
             domObj.floatingTaskWindow.classList.add('active')}
 
     })
+    domObj.addButton.addEventListener('click',function(){
+
+        if (domObj.floatingTaskWindow.classList == 'active'){
+            domObj.floatingTaskWindow.classList.remove('active')
+            domObj.floatingTaskWindow.classList.add('hidden')
+        } else if (domObj.floatingTaskWindow.classList == 'hidden'){
+            domObj.floatingTaskWindow.classList.remove('hidden')
+            domObj.floatingTaskWindow.classList.add('active')}
+
+    })
 })();
 
 
@@ -25,6 +35,8 @@ let floatingProjectWindowFunc = (function(){
             domObj.floatingProjectWindow.classList.remove('hid')
             domObj.floatingProjectWindow.classList.add('vis')}
     })
+
+ 
 
 })();
 
