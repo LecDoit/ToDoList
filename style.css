@@ -103,7 +103,7 @@ padding-top: 10px;
     grid-template-columns: 10fr 1fr;
     border-bottom: 1px solid black;
 }
-.del-project-but{
+.del-project-but,.del-but{
     background-color: rgba(223, 188, 169, 0);
     border: none;
     font-size: large;
@@ -134,47 +134,104 @@ padding-top: 10px;
 }
 
 #main{
-
+    border-left: 1px solid black;
+    padding-left: 20px;
     display: grid;
     grid-row-start: 2;
     grid-row-end: 2;
+    font-weight: 600;
+    font-size: 20px;
 
     grid-column-start: 2;
     grid-column-end: 2;
 }
 
+#list{
+    font-weight: 100;
+    font-size: 15px;
+    display: grid;
+    gap: 20px;
+
+}
+#list>div{
+    border-bottom: 1px solid black;
+    font-weight: 800;
+
+
+
+}
+#list>div>div>div{
+    background-color: rgba(178, 126, 108, 0);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    transition: 1s;
+    font-weight: 100;
+
+}
+#list>div>div>div>div{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#list>div>div>div:hover{
+    background-color: rgba(178, 126, 108, 0.062);
+    border-bottom: 1px solid black;
+}
+
+
+
+
+
 #form {
+    font-size: 25px;
+    text-align: center;
     width: 550px;
     height: 250px;
+    padding: 25px;
+    /* background-color: rgb(234, 227, 226); */
+    background: linear-gradient(66deg,  rgb(234, 227, 226) 77%,
+    rgb(195, 180, 172)34%);
 
-    background-color: rgb(234, 227, 226);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     border: 1px solid rgb(178, 125, 108);
+    gap: 5px;
 }
 #form>div{
+    font-size: 15px;
+
     display: grid;
+
+    text-align: left;
     grid-template-columns: 1fr 2fr;
 }
+#addButton>#add{
+    margin-top: 20px;
+    grid-column-start:1 ;
+    grid-column-end: 3;
+    box-shadow: 10px 10px 50px 5px   rgba(31, 10, 3, 0);
+    transition: 1s;
+}
+#addButton>#add:hover{
+    box-shadow: 10px 1px 60px 5px   rgba(31, 10, 3, 0.267);
+}
+
+
 
 #floating{
     position:absolute;
-
-
     box-shadow: 1px 10px 35px 10px   rgb(31, 10, 3);
 }
 .hidden{
     overflow: hidden;
 
-    transition: top 0.5s;
-    top: -300px;
+    transition: top 1s;
+    top: -400px;
 
 
 }
 .active{
     overflow:visible;
-    transition: top 0.5s;
+    transition: top 1s;
 
     top: 100px;
 
@@ -199,16 +256,34 @@ padding-top: 10px;
     overflow:hidden;
     max-height: 0;
     transition: max-height 0.5s;
+    transition: 0.5s;
+    padding-left: 0px;
+    border-left: 50px solid rgb(178, 125, 108);
+
+
 }
 
 .aktyw{
     overflow:visible;
-    background-color: bisque;
+    background-color: white;
     transition: max-height 0.5s;
     max-height: 100px;
+    border-left: 1px solid black;
+    padding-left: 20px;
+
 }
 
 .nieaktyw{
 
 }
 
+.del-but{
+    background-color: rgba(178, 126, 108, 0);
+    font-size: 10px;
+    transition: 0.3s;
+}
+.del-but:hover{
+    font-size: 11px;
+    background-color: rgba(178, 126, 108, 1);
+
+}

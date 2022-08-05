@@ -43,7 +43,7 @@ let genGridFunction = function(){
                         let taskDelButton = document.createElement('button')
                         let taskDetailsContainter = document.createElement('div')
                     
-                        taskDelButton.textContent = 'x'
+                        taskDelButton.textContent = 'Remove'
                         taskDelButton.setAttribute('class','del-but')
                         taskDetailsContainter.classList.add('start')
                         titleContainter.classList.add('accordion__button')
